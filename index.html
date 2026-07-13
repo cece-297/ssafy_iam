@@ -76,7 +76,7 @@
         <section id="about" class="py-16 md:py-24">
             <h2 class="serif text-5xl md:text-8xl leading-tight mb-8">
                 오늘, <br>
-                <span class="coral-accent italic">어디 갈까?</span>
+                <span class="coral-accent italic" id="typing-text"></span>
             </h2>
             <p class="max-w-lg text-lg md:text-xl font-medium leading-relaxed opacity-80">
                 입안 가득 퍼지는 행복, 우리가 직접 발로 뛰며 발견한 3곳의 숨은 맛집. 광고가 아닌 진심을 담아 소개합니다.
@@ -84,17 +84,17 @@
         </section>
 
         <section class="py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white card-shadow">
+            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 card-shadow">
                 <div class="w-12 h-12 coral-bg rounded-full mb-6"></div>
                 <h3 class="text-2xl mb-4">독보적인 공간</h3>
                 <p class="text-sm opacity-70">단순히 맛있는 곳이 아닌, 고유한 분위기가 있는 공간들을 엄선합니다.</p>
             </div>
-            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white card-shadow">
+            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 card-shadow">
                 <div class="w-12 h-12 bg-[#81B29A] rounded-full mb-6"></div>
                 <h3 class="text-2xl mb-4">현장감 있는 시선</h3>
                 <p class="text-sm opacity-70">직접 촬영한 생생한 사진으로 여러분의 신뢰에 보답합니다.</p>
             </div>
-            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white card-shadow">
+            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 card-shadow">
                 <div class="w-12 h-12 bg-[#F2CC8F] rounded-full mb-6"></div>
                 <h3 class="text-2xl mb-4">실속 있는 정보</h3>
                 <p class="text-sm opacity-70">복잡한 설명보다 꼭 필요한 정보와 지도 링크로 편리함을 더합니다.</p>
@@ -113,6 +113,7 @@
             </div>
 
             <div id="grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
                 <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="hapjeong">
                     <div class="w-full h-64 bg-[#F4F1DE] dark:bg-gray-700 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl">H</div>
                     <h3 class="serif text-2xl mb-2">온기 한옥</h3>
@@ -123,6 +124,7 @@
                     </div>
                     <button onclick="openModal('온기 한옥', '합정역 도보 5분 거리의 온기 한옥')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
                 </div>
+                <!-- Item 2 -->
                 <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="yeonnam">
                     <div class="w-full h-64 bg-[#E07A5F]/10 dark:bg-gray-700 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-primary">Y</div>
                     <h3 class="serif text-2xl mb-2">밀물과 썰물</h3>
@@ -133,6 +135,7 @@
                     </div>
                     <button onclick="openModal('밀물과 썰물', '연남동 경의선 숲길 카페거리')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
                 </div>
+                <!-- Item 3 -->
                 <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="euljiro">
                     <div class="w-full h-64 bg-[#3D405B]/10 dark:bg-gray-700 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]">E</div>
                     <h3 class="serif text-2xl mb-2">오래된 페이지</h3>
@@ -163,6 +166,34 @@
     </div>
 
     <script>
+        // Typing Effect with IntersectionObserver
+        const textElement = document.getElementById('typing-text');
+        const textToType = "어디 갈까?";
+        let charIndex = 0;
+        let typingTimeout;
+
+        function type() {
+            if (charIndex < textToType.length) {
+                textElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                typingTimeout = setTimeout(type, 100); // 부드럽고 빠르게
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Reset and Start
+                    clearTimeout(typingTimeout);
+                    textElement.textContent = "";
+                    charIndex = 0;
+                    type();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.getElementById('about'));
+
         // Scroll Progress
         window.onscroll = function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
