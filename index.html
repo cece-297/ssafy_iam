@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Pretendard:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Pretendard', sans-serif; background-color: #FAF7F2; color: #3D405B; }
+        body { font-family: 'Pretendard', sans-serif; transition: background-color 0.3s, color 0.3s; }
         h1, h2, h3, .serif { font-family: 'Nanum Myeongjo', serif; }
         
         .coral-accent { color: #E07A5F; }
@@ -18,26 +18,35 @@
     </style>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         primary: '#E07A5F',
+                        // Light theme defaults
                         bg: '#FAF7F2',
-                        text: '#3D405B'
+                        text: '#3D405B',
+                        // Dark theme overrides
+                        darkBg: '#1A1A1A',
+                        darkCard: '#2D3047',
+                        darkText: '#EAEAEA'
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="text-[#3D405B] overflow-x-hidden">
+<body class="bg-bg dark:bg-darkBg text-text dark:text-darkText transition-colors duration-300">
 
-    <header class="w-full px-4 sm:px-6 py-6 md:py-10 flex justify-between items-center sticky top-0 bg-[#FAF7F2]/90 backdrop-blur-sm z-40">
+    <header class="w-full px-6 py-6 md:py-10 flex justify-between items-center sticky top-0 bg-[#FAF7F2]/90 dark:bg-[#1A1A1A]/90 backdrop-blur-sm z-40 transition-colors">
         <h1 class="serif text-xl sm:text-2xl font-bold tracking-tight">Hidden<span class="coral-accent">.</span></h1>
-        <nav class="flex gap-4 sm:gap-8 font-medium text-xs sm:text-sm tracking-wide uppercase">
+        <div class="flex items-center gap-4 sm:gap-8 font-medium text-xs sm:text-sm tracking-wide uppercase">
             <a href="#about" class="hover:text-primary transition">About</a>
             <a href="#list" class="hover:text-primary transition">Collection</a>
-        </nav>
+            <button onclick="toggleTheme()" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 transition">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </div>
     </header>
 
     <main class="w-full max-w-6xl mx-auto px-4 sm:px-6">
@@ -52,17 +61,17 @@
         </section>
 
         <section class="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="p-6 sm:p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
+            <div class="p-6 sm:p-8 border border-[#EBE8E1] dark:border-[#40435C] rounded-2xl bg-white dark:bg-[#2D3047] card-shadow">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 coral-bg rounded-full mb-6"></div>
                 <h3 class="text-xl sm:text-2xl mb-4">독보적인 공간</h3>
                 <p class="text-sm opacity-70">단순히 맛있는 곳이 아닌, 고유한 분위기가 있는 공간들을 엄선합니다.</p>
             </div>
-            <div class="p-6 sm:p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
+            <div class="p-6 sm:p-8 border border-[#EBE8E1] dark:border-[#40435C] rounded-2xl bg-white dark:bg-[#2D3047] card-shadow">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#81B29A] rounded-full mb-6"></div>
                 <h3 class="text-xl sm:text-2xl mb-4">현장감 있는 시선</h3>
                 <p class="text-sm opacity-70">직접 촬영한 생생한 사진으로 여러분의 신뢰에 보답합니다.</p>
             </div>
-            <div class="p-6 sm:p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
+            <div class="p-6 sm:p-8 border border-[#EBE8E1] dark:border-[#40435C] rounded-2xl bg-white dark:bg-[#2D3047] card-shadow">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#F2CC8F] rounded-full mb-6"></div>
                 <h3 class="text-xl sm:text-2xl mb-4">실속 있는 정보</h3>
                 <p class="text-sm opacity-70">복잡한 설명보다 꼭 필요한 정보와 지도 링크로 편리함을 더합니다.</p>
@@ -74,20 +83,20 @@
                 <h3 class="serif text-3xl sm:text-4xl">COLLECTION_</h3>
                 <div class="flex flex-wrap gap-2">
                     <button onclick="filterItems('all')" class="filter-btn active px-5 py-2 rounded-full font-medium text-sm transition hover:bg-primary/90">All</button>
-                    <button onclick="filterItems('hapjeong')" class="filter-btn px-5 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium text-sm transition hover:bg-primary hover:text-white">Hapjeong</button>
-                    <button onclick="filterItems('yeonnam')" class="filter-btn px-5 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium text-sm transition hover:bg-primary hover:text-white">Yeonnam</button>
-                    <button onclick="filterItems('euljiro')" class="filter-btn px-5 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium text-sm transition hover:bg-primary hover:text-white">Euljiro</button>
+                    <button onclick="filterItems('hapjeong')" class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#2D3047] border border-[#EBE8E1] dark:border-[#40435C] font-medium text-sm transition hover:bg-primary hover:text-white">Hapjeong</button>
+                    <button onclick="filterItems('yeonnam')" class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#2D3047] border border-[#EBE8E1] dark:border-[#40435C] font-medium text-sm transition hover:bg-primary hover:text-white">Yeonnam</button>
+                    <button onclick="filterItems('euljiro')" class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-[#2D3047] border border-[#EBE8E1] dark:border-[#40435C] font-medium text-sm transition hover:bg-primary hover:text-white">Euljiro</button>
                 </div>
             </div>
 
             <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Item 1 -->
-                <div class="item bg-white p-6 rounded-3xl border border-[#EBE8E1] card-shadow" data-cat="hapjeong">
-                    <div class="w-full h-48 sm:h-64 bg-[#F4F1DE] rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]/30">H</div>
+                <div class="item bg-white dark:bg-[#2D3047] p-6 rounded-3xl border border-[#EBE8E1] dark:border-[#40435C] card-shadow" data-cat="hapjeong">
+                    <div class="w-full h-48 sm:h-64 bg-[#F4F1DE] dark:bg-[#3D405B] rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]/30 dark:text-white/20">H</div>
                     <h3 class="serif text-2xl mb-2">온기 한옥</h3>
                     <p class="text-sm mb-6 opacity-70">전통의 정갈함과 현대적인 솥밥의 조화.</p>
                     
-                    <div class="bg-[#FAF7F2] p-4 rounded-xl mb-6 space-y-2">
+                    <div class="bg-[#FAF7F2] dark:bg-[#1A1A1A] p-4 rounded-xl mb-6 space-y-2">
                         <div class="flex justify-between text-xs">
                             <span class="font-bold opacity-60">추천 메뉴</span>
                             <span>솥밥 정식, 가지 튀김</span>
@@ -101,12 +110,12 @@
                 </div>
                 
                 <!-- Item 2 -->
-                <div class="item bg-white p-6 rounded-3xl border border-[#EBE8E1] card-shadow" data-cat="yeonnam">
-                    <div class="w-full h-48 sm:h-64 bg-[#E07A5F]/10 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-primary">Y</div>
+                <div class="item bg-white dark:bg-[#2D3047] p-6 rounded-3xl border border-[#EBE8E1] dark:border-[#40435C] card-shadow" data-cat="yeonnam">
+                    <div class="w-full h-48 sm:h-64 bg-[#E07A5F]/10 dark:bg-[#E07A5F]/20 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-primary">Y</div>
                     <h3 class="serif text-2xl mb-2">밀물과 썰물</h3>
                     <p class="text-sm mb-6 opacity-70">경의선 숲길 끝, 햇살이 쏟아지는 카페.</p>
                     
-                    <div class="bg-[#FAF7F2] p-4 rounded-xl mb-6 space-y-2">
+                    <div class="bg-[#FAF7F2] dark:bg-[#1A1A1A] p-4 rounded-xl mb-6 space-y-2">
                         <div class="flex justify-between text-xs">
                             <span class="font-bold opacity-60">추천 메뉴</span>
                             <span>시그니처 크림 라떼</span>
@@ -120,12 +129,12 @@
                 </div>
                 
                 <!-- Item 3 -->
-                <div class="item bg-white p-6 rounded-3xl border border-[#EBE8E1] card-shadow" data-cat="euljiro">
-                    <div class="w-full h-48 sm:h-64 bg-[#3D405B]/10 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]">E</div>
+                <div class="item bg-white dark:bg-[#2D3047] p-6 rounded-3xl border border-[#EBE8E1] dark:border-[#40435C] card-shadow" data-cat="euljiro">
+                    <div class="w-full h-48 sm:h-64 bg-[#3D405B]/10 dark:bg-[#1A1A1A]/30 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B] dark:text-[#EAEAEA]">E</div>
                     <h3 class="serif text-2xl mb-2">오래된 페이지</h3>
                     <p class="text-sm mb-6 opacity-70">을지로의 낡은 문 뒤에 숨겨진 비밀 와인바.</p>
                     
-                    <div class="bg-[#FAF7F2] p-4 rounded-xl mb-6 space-y-2">
+                    <div class="bg-[#FAF7F2] dark:bg-[#1A1A1A] p-4 rounded-xl mb-6 space-y-2">
                         <div class="flex justify-between text-xs">
                             <span class="font-bold opacity-60">추천 메뉴</span>
                             <span>하우스 와인, 치즈 플레이트</span>
@@ -141,22 +150,28 @@
         </section>
     </main>
 
-    <footer class="py-12 border-t border-[#EBE8E1] text-center opacity-60">
+    <footer class="py-12 border-t border-[#EBE8E1] dark:border-[#40435C] text-center opacity-60">
         <p class="text-sm">© 2026 Hidden Gems Magazine. All rights reserved.</p>
     </footer>
 
-    <div id="modal" class="hidden fixed inset-0 bg-[#3D405B]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white p-6 sm:p-8 rounded-3xl max-w-sm w-full shadow-2xl">
-            <h3 class="serif text-2xl sm:text-3xl mb-2" id="modal-title">PLACE</h3>
-            <p class="mb-8 opacity-70 text-sm sm:text-base" id="modal-desc">위치 정보를 확인하시겠습니까?</p>
+    <div id="modal" class="hidden fixed inset-0 bg-[#3D405B]/40 dark:bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-[#2D3047] p-6 sm:p-8 rounded-3xl max-w-sm w-full shadow-2xl">
+            <h3 class="serif text-2xl sm:text-3xl mb-2 dark:text-[#EAEAEA]" id="modal-title">PLACE</h3>
+            <p class="mb-8 opacity-70 text-sm sm:text-base dark:text-[#EAEAEA]" id="modal-desc">위치 정보를 확인하시겠습니까?</p>
             <div class="flex gap-4">
-                <button onclick="closeModal()" class="flex-1 py-3 bg-[#F4F1DE] rounded-xl font-bold hover:opacity-80 transition text-sm sm:text-base">닫기</button>
+                <button onclick="closeModal()" class="flex-1 py-3 bg-[#F4F1DE] dark:bg-[#1A1A1A] dark:text-[#EAEAEA] rounded-xl font-bold hover:opacity-80 transition text-sm sm:text-base">닫기</button>
                 <button onclick="window.open('https://map.naver.com', '_blank')" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary/90 transition text-sm sm:text-base">지도 보기</button>
             </div>
         </div>
     </div>
 
     <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const icon = document.getElementById('theme-icon');
+            icon.innerText = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+        }
+
         function filterItems(cat) {
             const items = document.querySelectorAll('.item');
             const btns = document.querySelectorAll('.filter-btn');
