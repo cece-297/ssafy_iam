@@ -9,17 +9,35 @@
     <style>
         body { 
             font-family: 'Pretendard', sans-serif; 
-            background-color: #FAF7F2; 
+            background: radial-gradient(circle at top right, #fdfbf7, #f0eef5);
             color: #3D405B; 
             cursor: none !important; 
+            transition: background 0.5s ease;
+        }
+        .dark body { 
+            background: radial-gradient(circle at top right, #1a1a1a, #0a0a0a);
+            color: #EAEAEA; 
         }
         a, button { cursor: none !important; }
         h1, h2, h3, .serif { font-family: 'Nanum Myeongjo', serif; }
         
+        /* Glassmorphism Styles */
+        .glass {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+        }
+        .dark .glass {
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
         .coral-accent { color: #E07A5F; }
         .coral-bg { background-color: #E07A5F; }
-        .card-shadow { box-shadow: 0 10px 30px -5px rgba(61, 64, 91, 0.1); }
-        .filter-btn.active { background-color: #E07A5F; color: white; }
+        .filter-btn.active { background-color: #E07A5F; color: white; border: none; }
 
         .custom-cursor {
             position: fixed;
@@ -35,34 +53,30 @@
             justify-content: center;
         }
         .cursor-hover { transform: scale(1.5) translate(-33%, -33%); }
-
-        .dark body { background-color: #1A1A1A; color: #EAEAEA; }
-        .dark .bg-white { background-color: #2D3047; color: #EAEAEA; border-color: #444; }
-        .dark .bg-[#FAF7F2] { background-color: #1A1A1A; }
     </style>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { primary: '#E07A5F', bg: '#FAF7F2', text: '#3D405B' }
+                    colors: { primary: '#E07A5F' }
                 }
             }
         }
     </script>
 </head>
-<body class="text-[#3D405B] transition-colors duration-300">
+<body class="transition-colors duration-500">
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-75" style="width: 0%;"></div>
     <div class="custom-cursor hidden md:flex">👆</div>
 
-    <header class="max-w-6xl mx-auto p-6 md:py-10 flex justify-between items-center sticky top-0 bg-[#FAF7F2]/90 dark:bg-[#1A1A1A]/90 backdrop-blur-sm z-40 transition-colors">
+    <header class="glass max-w-6xl mx-auto m-6 rounded-3xl p-6 md:py-8 flex justify-between items-center sticky top-6 z-40">
         <h1 class="serif text-2xl font-bold tracking-tight">Hidden<span class="coral-accent">.</span></h1>
         <div class="flex items-center gap-6">
             <nav class="hidden md:flex gap-8 font-medium text-sm tracking-wide uppercase">
                 <a href="#about" class="hover:text-primary transition">About</a>
                 <a href="#list" class="hover:text-primary transition">Collection</a>
             </nav>
-            <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+            <button onclick="document.documentElement.classList.toggle('dark')" class="p-2 rounded-full hover:bg-white/20 transition">
                 <span class="block dark:hidden">🌙</span>
                 <span class="hidden dark:block">☀️</span>
             </button>
@@ -75,95 +89,94 @@
                 오늘, <br>
                 <span class="coral-accent italic" id="typing-text"></span>
             </h2>
-            <p class="max-w-lg text-lg md:text-xl font-medium leading-relaxed opacity-80">
+            <p class="max-w-lg text-lg md:text-xl font-medium leading-relaxed opacity-60">
                 입안 가득 퍼지는 행복, 우리가 직접 발로 뛰며 발견한 3곳의 숨은 맛집. 광고가 아닌 진심을 담아 소개합니다.
             </p>
         </section>
 
         <section class="py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 card-shadow">
-                <div class="w-12 h-12 coral-bg rounded-full mb-6"></div>
+            <div class="glass p-8 rounded-3xl">
+                <div class="w-12 h-12 bg-primary rounded-2xl mb-6 shadow-lg shadow-primary/20"></div>
                 <h3 class="text-2xl mb-4">독보적인 공간</h3>
-                <p class="text-sm opacity-70">단순히 맛있는 곳이 아닌, 고유한 분위기가 있는 공간들을 엄선합니다.</p>
+                <p class="text-sm opacity-60">단순히 맛있는 곳이 아닌, 고유한 분위기가 있는 공간들을 엄선합니다.</p>
             </div>
-            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 card-shadow">
-                <div class="w-12 h-12 bg-[#81B29A] rounded-full mb-6"></div>
+            <div class="glass p-8 rounded-3xl">
+                <div class="w-12 h-12 bg-[#81B29A] rounded-2xl mb-6 shadow-lg shadow-[#81B29A]/20"></div>
                 <h3 class="text-2xl mb-4">현장감 있는 시선</h3>
-                <p class="text-sm opacity-70">직접 촬영한 생생한 사진으로 여러분의 신뢰에 보답합니다.</p>
+                <p class="text-sm opacity-60">직접 촬영한 생생한 사진으로 여러분의 신뢰에 보답합니다.</p>
             </div>
-            <div class="p-8 border border-[#EBE8E1] dark:border-gray-700 rounded-2xl bg-white dark:bg-gray-800 card-shadow">
-                <div class="w-12 h-12 bg-[#F2CC8F] rounded-full mb-6"></div>
+            <div class="glass p-8 rounded-3xl">
+                <div class="w-12 h-12 bg-[#F2CC8F] rounded-2xl mb-6 shadow-lg shadow-[#F2CC8F]/20"></div>
                 <h3 class="text-2xl mb-4">실속 있는 정보</h3>
-                <p class="text-sm opacity-70">복잡한 설명보다 꼭 필요한 정보와 지도 링크로 편리함을 더합니다.</p>
+                <p class="text-sm opacity-60">복잡한 설명보다 꼭 필요한 정보와 지도 링크로 편리함을 더합니다.</p>
             </div>
         </section>
 
         <section id="list" class="py-16">
             <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
                 <h3 class="serif text-4xl">COLLECTION_</h3>
-                <div class="flex gap-2">
-                    <button onclick="filterItems('all')" class="filter-btn active px-6 py-2 rounded-full font-medium transition hover:bg-primary/90">All</button>
-                    <button onclick="filterItems('yeoksam')" class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-gray-800 border border-[#EBE8E1] dark:border-gray-700 font-medium transition hover:bg-primary hover:text-white">Yeoksam</button>
-                    <button onclick="filterItems('gwanggyo')" class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-gray-800 border border-[#EBE8E1] dark:border-gray-700 font-medium transition hover:bg-primary hover:text-white">Gwanggyo</button>
-                    <button onclick="filterItems('seongsu')" class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-gray-800 border border-[#EBE8E1] dark:border-gray-700 font-medium transition hover:bg-primary hover:text-white">Seongsu</button>
+                <div class="flex gap-2 p-1 glass rounded-full">
+                    <button onclick="filterItems('all')" class="filter-btn active px-6 py-2 rounded-full font-medium transition">All</button>
+                    <button onclick="filterItems('yeoksam')" class="filter-btn px-6 py-2 rounded-full transition">Yeoksam</button>
+                    <button onclick="filterItems('gwanggyo')" class="filter-btn px-6 py-2 rounded-full transition">Gwanggyo</button>
+                    <button onclick="filterItems('seongsu')" class="filter-btn px-6 py-2 rounded-full transition">Seongsu</button>
                 </div>
             </div>
 
             <div id="grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Item 1 -->
-                <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="yeoksam">
-                    <img src="https://images.unsplash.com/photo-1546237769-6f84ec1a512a?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="베통 역삼" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <div class="item glass p-6 rounded-3xl" data-cat="yeoksam">
+                    <img src="https://images.unsplash.com/photo-1546237769-6f84ec1a512a?q=80&w=1160&auto=format&fit=crop" alt="베통 역삼" class="w-full h-64 object-cover rounded-2xl mb-6">
                     <h3 class="serif text-2xl mb-2">베통 역삼</h3>
-                    <p class="text-sm mb-6 opacity-70">역삼역 도보 5분 거리의 소금빵 맛집</p>
-                    <div class="bg-[#FAF7F2] dark:bg-gray-900 p-4 rounded-xl mb-6 space-y-2">
-                        <div class="flex justify-between text-xs"><span class="font-bold opacity-60">추천 메뉴</span><span>소금빵, 프레첼</span></div>
-                        <div class="flex justify-between text-xs"><span class="font-bold opacity-60">대기 시간</span><span>주말 20-30분 내외</span></div>
+                    <p class="text-sm mb-6 opacity-60">역삼역 도보 5분 거리의 소금빵 맛집</p>
+                    <div class="bg-black/5 dark:bg-white/5 p-4 rounded-xl mb-6 space-y-2">
+                        <div class="flex justify-between text-xs opacity-70"><span class="font-bold">추천 메뉴</span><span>소금빵, 프레첼</span></div>
+                        <div class="flex justify-between text-xs opacity-70"><span class="font-bold">대기 시간</span><span>주말 20-30분 내외</span></div>
                     </div>
-                    <button onclick="openModal('베통 역삼', '역삼역 도보 5분 거리의 소금빵 맛집', 'https://naver.me/5UEcHdrX')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('베통 역삼', '역삼역 도보 5분 거리의 소금빵 맛집', 'https://naver.me/5UEcHdrX')" class="w-full py-4 rounded-xl border border-white/10 hover:bg-white/10 transition font-bold">네이버 지도로 보기</button>
                 </div>
                 <!-- Item 2 -->
-                <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="gwanggyo">
-                    <img src="https://images.unsplash.com/photo-1629223636116-04e1e85a8a6c?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="모닉" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <div class="item glass p-6 rounded-3xl" data-cat="gwanggyo">
+                    <img src="https://images.unsplash.com/photo-1629223636116-04e1e85a8a6c?q=80&w=1469&auto=format&fit=crop" alt="모닉" class="w-full h-64 object-cover rounded-2xl mb-6">
                     <h3 class="serif text-2xl mb-2">모닉</h3>
-                    <p class="text-sm mb-6 opacity-70">광교 카페거리 아늑한 와인바</p>
-                    <div class="bg-[#FAF7F2] dark:bg-gray-900 p-4 rounded-xl mb-6 space-y-2">
-                        <div class="flex justify-between text-xs"><span class="font-bold opacity-60">추천 메뉴</span><span>오늘의 와인, 치즈 보드</span></div>
-                        <div class="flex justify-between text-xs"><span class="font-bold opacity-60">대기 시간</span><span>예약 권장</span></div>
+                    <p class="text-sm mb-6 opacity-60">광교 카페거리 아늑한 와인바</p>
+                    <div class="bg-black/5 dark:bg-white/5 p-4 rounded-xl mb-6 space-y-2">
+                        <div class="flex justify-between text-xs opacity-70"><span class="font-bold">추천 메뉴</span><span>오늘의 와인, 치즈 보드</span></div>
+                        <div class="flex justify-between text-xs opacity-70"><span class="font-bold">대기 시간</span><span>예약 권장</span></div>
                     </div>
-                    <button onclick="openModal('모닉', '광교 카페거리 아늑한 와인바', 'https://naver.me/Gxk1cx3n')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('모닉', '광교 카페거리 아늑한 와인바', 'https://naver.me/Gxk1cx3n')" class="w-full py-4 rounded-xl border border-white/10 hover:bg-white/10 transition font-bold">네이버 지도로 보기</button>
                 </div>
                 <!-- Item 3 -->
-                <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="seongsu">
-                    <img src="https://plus.unsplash.com/premium_photo-1668146933119-e4b71a931955?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="독보" class="w-full h-64 object-cover rounded-2xl mb-6">
+                <div class="item glass p-6 rounded-3xl" data-cat="seongsu">
+                    <img src="https://plus.unsplash.com/premium_photo-1667807522888-911d7e8f0791?q=80&w=1519&auto=format&fit=crop" alt="독보" class="w-full h-64 object-cover rounded-2xl mb-6">
                     <h3 class="serif text-2xl mb-2">독보</h3>
-                    <p class="text-sm mb-6 opacity-70">성수동의 숨은 한식 퓨전 맛집</p>
-                    <div class="bg-[#FAF7F2] dark:bg-gray-900 p-4 rounded-xl mb-6 space-y-2">
-                        <div class="flex justify-between text-xs"><span class="font-bold opacity-60">추천 메뉴</span><span>한우 육회 솥밥, 묵은지 찌개</span></div>
-                        <div class="flex justify-between text-xs"><span class="font-bold opacity-60">대기 시간</span><span>저녁 7시 이후 예약 권장</span></div>
+                    <p class="text-sm mb-6 opacity-60">성수동의 숨은 한식 퓨전 맛집</p>
+                    <div class="bg-black/5 dark:bg-white/5 p-4 rounded-xl mb-6 space-y-2">
+                        <div class="flex justify-between text-xs opacity-70"><span class="font-bold">추천 메뉴</span><span>한우 육회 솥밥, 묵은지 찌개</span></div>
+                        <div class="flex justify-between text-xs opacity-70"><span class="font-bold">대기 시간</span><span>저녁 7시 이후 예약 권장</span></div>
                     </div>
-                    <button onclick="openModal('독보', '성수동의 숨은 한식 퓨전 맛집', 'https://naver.me/F884jOuD')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('독보', '성수동의 숨은 한식 퓨전 맛집', 'https://naver.me/F884jOuD')" class="w-full py-4 rounded-xl border border-white/10 hover:bg-white/10 transition font-bold">네이버 지도로 보기</button>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-12 border-t border-[#EBE8E1] dark:border-gray-700 text-center opacity-60">
-        <p class="text-sm">© 2026 Hidden Gems Magazine. All rights reserved.</p>
+    <footer class="py-12 text-center opacity-40">
+        <p class="text-sm">© 2026 Hidden Gems Magazine.</p>
     </footer>
 
-    <div id="modal" class="hidden fixed inset-0 bg-[#3D405B]/40 dark:bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-gray-800 p-8 rounded-3xl max-w-sm w-full shadow-2xl">
+    <div id="modal" class="hidden fixed inset-0 bg-black/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="glass p-8 rounded-3xl max-w-sm w-full">
             <h3 class="serif text-3xl mb-2" id="modal-title">PLACE</h3>
             <p class="mb-8 opacity-70" id="modal-desc">위치 정보를 확인하시겠습니까?</p>
             <div class="flex gap-4">
-                <button onclick="closeModal()" class="flex-1 py-3 bg-[#F4F1DE] dark:bg-gray-700 rounded-xl font-bold hover:opacity-80 transition">닫기</button>
+                <button onclick="closeModal()" class="flex-1 py-3 bg-white/10 rounded-xl font-bold hover:bg-white/20 transition">닫기</button>
                 <button id="map-btn" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary/90 transition">지도 보기</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Typing Effect
         const textElement = document.getElementById('typing-text');
         const textToType = "어디 갈까?";
         let charIndex = 0;
@@ -189,7 +202,6 @@
         }, { threshold: 0.5 });
         observer.observe(document.getElementById('about'));
 
-        // Scroll Progress
         window.onscroll = function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -197,7 +209,6 @@
             document.getElementById("scroll-progress").style.width = scrolled + "%";
         };
 
-        // Custom Cursor
         const cursor = document.querySelector('.custom-cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
@@ -209,7 +220,6 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
         });
 
-        // Functions
         function filterItems(cat) {
             const items = document.querySelectorAll('.item');
             const btns = document.querySelectorAll('.filter-btn');
