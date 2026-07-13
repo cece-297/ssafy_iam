@@ -13,9 +13,7 @@
             color: #3D405B; 
             cursor: none !important; 
         }
-        
         a, button { cursor: none !important; }
-
         h1, h2, h3, .serif { font-family: 'Nanum Myeongjo', serif; }
         
         .coral-accent { color: #E07A5F; }
@@ -54,7 +52,6 @@
     </script>
 </head>
 <body class="text-[#3D405B] transition-colors duration-300">
-
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-75" style="width: 0%;"></div>
     <div class="custom-cursor hidden md:flex">👆</div>
 
@@ -115,36 +112,36 @@
             <div id="grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Item 1 -->
                 <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="hapjeong">
-                    <div class="w-full h-64 bg-[#F4F1DE] dark:bg-gray-700 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl">H</div>
-                    <h3 class="serif text-2xl mb-2">온기 한옥</h3>
-                    <p class="text-sm mb-6 opacity-70">전통의 정갈함과 현대적인 솥밥의 조화.</p>
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="온기 한옥" class="w-full h-64 object-cover rounded-2xl mb-6">
+                    <h3 class="serif text-2xl mb-2">베통 역삼</h3>
+                    <p class="text-sm mb-6 opacity-70">역삼역 도보 5분 거리의 소금빵 맛집</p>
                     <div class="bg-[#FAF7F2] dark:bg-gray-900 p-4 rounded-xl mb-6 space-y-2">
                         <div class="flex justify-between text-xs"><span class="font-bold opacity-60">추천 메뉴</span><span>솥밥 정식, 가지 튀김</span></div>
                         <div class="flex justify-between text-xs"><span class="font-bold opacity-60">대기 시간</span><span>주말 20-30분 내외</span></div>
                     </div>
-                    <button onclick="openModal('온기 한옥', '합정역 도보 5분 거리의 온기 한옥')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('베통 역삼', '역삼역 도보 5분 거리의 소금빵 맛집', 'https://naver.me/5UEcHdrX')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
                 </div>
                 <!-- Item 2 -->
                 <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="yeonnam">
-                    <div class="w-full h-64 bg-[#E07A5F]/10 dark:bg-gray-700 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-primary">Y</div>
-                    <h3 class="serif text-2xl mb-2">밀물과 썰물</h3>
-                    <p class="text-sm mb-6 opacity-70">경의선 숲길 끝, 햇살이 쏟아지는 카페.</p>
+                    <img src="https://images.unsplash.com/photo-1559925393-8be08e1f7003?auto=format&fit=crop&w=800&q=80" alt="밀물과 썰물" class="w-full h-64 object-cover rounded-2xl mb-6">
+                    <h3 class="serif text-2xl mb-2">모닉</h3>
+                    <p class="text-sm mb-6 opacity-70">광교 카페거리 아늑한 와인바</p>
                     <div class="bg-[#FAF7F2] dark:bg-gray-900 p-4 rounded-xl mb-6 space-y-2">
                         <div class="flex justify-between text-xs"><span class="font-bold opacity-60">추천 메뉴</span><span>시그니처 크림 라떼</span></div>
                         <div class="flex justify-between text-xs"><span class="font-bold opacity-60">대기 시간</span><span>상시 입장 가능</span></div>
                     </div>
-                    <button onclick="openModal('밀물과 썰물', '연남동 경의선 숲길 카페거리')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('모닉', '광교 카페거리 아늑한 와인바', 'https://naver.me/Gxk1cx3n')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
                 </div>
                 <!-- Item 3 -->
                 <div class="item bg-white dark:bg-gray-800 p-6 rounded-3xl border border-[#EBE8E1] dark:border-gray-700 card-shadow" data-cat="euljiro">
-                    <div class="w-full h-64 bg-[#3D405B]/10 dark:bg-gray-700 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]">E</div>
-                    <h3 class="serif text-2xl mb-2">오래된 페이지</h3>
-                    <p class="text-sm mb-6 opacity-70">을지로의 낡은 문 뒤에 숨겨진 비밀 와인바.</p>
+                    <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=800&q=80" alt="오래된 페이지" class="w-full h-64 object-cover rounded-2xl mb-6">
+                    <h3 class="serif text-2xl mb-2">독보</h3>
+                    <p class="text-sm mb-6 opacity-70">성수동의 숨은 한식 퓨전 맛집</p>
                     <div class="bg-[#FAF7F2] dark:bg-gray-900 p-4 rounded-xl mb-6 space-y-2">
                         <div class="flex justify-between text-xs"><span class="font-bold opacity-60">추천 메뉴</span><span>하우스 와인, 치즈 플레이트</span></div>
                         <div class="flex justify-between text-xs"><span class="font-bold opacity-60">대기 시간</span><span>저녁 7시 이후 예약 권장</span></div>
                     </div>
-                    <button onclick="openModal('오래된 페이지', '을지로 3가 골목 2층')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('독보', '성수동의 숨은 한식 퓨전 맛집', 'https://naver.me/F884jOuD')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
                 </div>
             </div>
         </section>
@@ -160,13 +157,13 @@
             <p class="mb-8 opacity-70" id="modal-desc">위치 정보를 확인하시겠습니까?</p>
             <div class="flex gap-4">
                 <button onclick="closeModal()" class="flex-1 py-3 bg-[#F4F1DE] dark:bg-gray-700 rounded-xl font-bold hover:opacity-80 transition">닫기</button>
-                <button onclick="window.open('https://map.naver.com', '_blank')" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary/90 transition">지도 보기</button>
+                <button id="map-btn" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary/90 transition">지도 보기</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Typing Effect with IntersectionObserver
+        // Typing Effect
         const textElement = document.getElementById('typing-text');
         const textToType = "어디 갈까?";
         let charIndex = 0;
@@ -176,14 +173,13 @@
             if (charIndex < textToType.length) {
                 textElement.textContent += textToType.charAt(charIndex);
                 charIndex++;
-                typingTimeout = setTimeout(type, 100); // 부드럽고 빠르게
+                typingTimeout = setTimeout(type, 150); 
             }
         }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Reset and Start
                     clearTimeout(typingTimeout);
                     textElement.textContent = "";
                     charIndex = 0;
@@ -191,7 +187,6 @@
                 }
             });
         }, { threshold: 0.5 });
-
         observer.observe(document.getElementById('about'));
 
         // Scroll Progress
@@ -214,7 +209,7 @@
             el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
         });
 
-        // Filter Logic
+        // Functions
         function filterItems(cat) {
             const items = document.querySelectorAll('.item');
             const btns = document.querySelectorAll('.filter-btn');
@@ -225,10 +220,11 @@
                 else item.classList.add('hidden');
             });
         }
-        function openModal(name, desc) {
+        function openModal(name, desc, mapUrl) {
             document.getElementById('modal').classList.remove('hidden');
             document.getElementById('modal-title').innerText = name;
             document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('map-btn').onclick = () => window.open(mapUrl, '_blank');
         }
         function closeModal() { document.getElementById('modal').classList.add('hidden'); }
     </script>
