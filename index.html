@@ -30,60 +30,60 @@
         }
     </script>
 </head>
-<body class="text-[#3D405B]">
+<body class="text-[#3D405B] overflow-x-hidden">
 
-    <header class="max-w-6xl mx-auto p-6 md:py-10 flex justify-between items-center sticky top-0 bg-[#FAF7F2]/90 backdrop-blur-sm z-40">
-        <h1 class="serif text-2xl font-bold tracking-tight">Hidden<span class="coral-accent">.</span></h1>
-        <nav class="flex gap-8 font-medium text-sm tracking-wide uppercase">
+    <header class="w-full px-4 sm:px-6 py-6 md:py-10 flex justify-between items-center sticky top-0 bg-[#FAF7F2]/90 backdrop-blur-sm z-40">
+        <h1 class="serif text-xl sm:text-2xl font-bold tracking-tight">Hidden<span class="coral-accent">.</span></h1>
+        <nav class="flex gap-4 sm:gap-8 font-medium text-xs sm:text-sm tracking-wide uppercase">
             <a href="#about" class="hover:text-primary transition">About</a>
             <a href="#list" class="hover:text-primary transition">Collection</a>
         </nav>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6">
-        <section id="about" class="py-16 md:py-24">
-            <h2 class="serif text-5xl md:text-8xl leading-tight mb-8">
+    <main class="w-full max-w-6xl mx-auto px-4 sm:px-6">
+        <section id="about" class="py-12 md:py-24">
+            <h2 class="serif text-4xl sm:text-6xl md:text-8xl leading-tight mb-6 sm:mb-8">
                 오늘, <br>
                 <span class="coral-accent italic">어디 갈까?</span>
             </h2>
-            <p class="max-w-lg text-lg md:text-xl font-medium leading-relaxed opacity-80">
+            <p class="max-w-lg text-base sm:text-lg md:text-xl font-medium leading-relaxed opacity-80">
                 입안 가득 퍼지는 행복, 우리가 직접 발로 뛰며 발견한 3곳의 숨은 맛집. 광고가 아닌 진심을 담아 소개합니다.
             </p>
         </section>
 
-        <section class="py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
-                <div class="w-12 h-12 coral-bg rounded-full mb-6"></div>
-                <h3 class="text-2xl mb-4">독보적인 공간</h3>
+        <section class="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 sm:p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 coral-bg rounded-full mb-6"></div>
+                <h3 class="text-xl sm:text-2xl mb-4">독보적인 공간</h3>
                 <p class="text-sm opacity-70">단순히 맛있는 곳이 아닌, 고유한 분위기가 있는 공간들을 엄선합니다.</p>
             </div>
-            <div class="p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
-                <div class="w-12 h-12 bg-[#81B29A] rounded-full mb-6"></div>
-                <h3 class="text-2xl mb-4">현장감 있는 시선</h3>
+            <div class="p-6 sm:p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#81B29A] rounded-full mb-6"></div>
+                <h3 class="text-xl sm:text-2xl mb-4">현장감 있는 시선</h3>
                 <p class="text-sm opacity-70">직접 촬영한 생생한 사진으로 여러분의 신뢰에 보답합니다.</p>
             </div>
-            <div class="p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
-                <div class="w-12 h-12 bg-[#F2CC8F] rounded-full mb-6"></div>
-                <h3 class="text-2xl mb-4">실속 있는 정보</h3>
+            <div class="p-6 sm:p-8 border border-[#EBE8E1] rounded-2xl bg-white card-shadow">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-[#F2CC8F] rounded-full mb-6"></div>
+                <h3 class="text-xl sm:text-2xl mb-4">실속 있는 정보</h3>
                 <p class="text-sm opacity-70">복잡한 설명보다 꼭 필요한 정보와 지도 링크로 편리함을 더합니다.</p>
             </div>
         </section>
 
         <section id="list" class="py-16">
-            <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
-                <h3 class="serif text-4xl">COLLECTION_</h3>
-                <div class="flex gap-2">
-                    <button onclick="filterItems('all')" class="filter-btn active px-6 py-2 rounded-full font-medium transition hover:bg-primary/90">All</button>
-                    <button onclick="filterItems('hapjeong')" class="filter-btn px-6 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium transition hover:bg-primary hover:text-white">Hapjeong</button>
-                    <button onclick="filterItems('yeonnam')" class="filter-btn px-6 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium transition hover:bg-primary hover:text-white">Yeonnam</button>
-                    <button onclick="filterItems('euljiro')" class="filter-btn px-6 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium transition hover:bg-primary hover:text-white">Euljiro</button>
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 sm:mb-12 gap-6">
+                <h3 class="serif text-3xl sm:text-4xl">COLLECTION_</h3>
+                <div class="flex flex-wrap gap-2">
+                    <button onclick="filterItems('all')" class="filter-btn active px-5 py-2 rounded-full font-medium text-sm transition hover:bg-primary/90">All</button>
+                    <button onclick="filterItems('hapjeong')" class="filter-btn px-5 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium text-sm transition hover:bg-primary hover:text-white">Hapjeong</button>
+                    <button onclick="filterItems('yeonnam')" class="filter-btn px-5 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium text-sm transition hover:bg-primary hover:text-white">Yeonnam</button>
+                    <button onclick="filterItems('euljiro')" class="filter-btn px-5 py-2 rounded-full bg-white border border-[#EBE8E1] font-medium text-sm transition hover:bg-primary hover:text-white">Euljiro</button>
                 </div>
             </div>
 
-            <div id="grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Item 1 -->
                 <div class="item bg-white p-6 rounded-3xl border border-[#EBE8E1] card-shadow" data-cat="hapjeong">
-                    <div class="w-full h-64 bg-[#F4F1DE] rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl">H</div>
+                    <div class="w-full h-48 sm:h-64 bg-[#F4F1DE] rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]/30">H</div>
                     <h3 class="serif text-2xl mb-2">온기 한옥</h3>
                     <p class="text-sm mb-6 opacity-70">전통의 정갈함과 현대적인 솥밥의 조화.</p>
                     
@@ -97,11 +97,12 @@
                             <span>주말 20-30분 내외</span>
                         </div>
                     </div>
-                    <button onclick="openModal('온기 한옥', '합정역 도보 5분 거리의 온기 한옥')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('온기 한옥', '합정역 도보 5분 거리의 온기 한옥')" class="w-full py-3 sm:py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition active:scale-[0.98]">네이버 지도로 보기</button>
                 </div>
+                
                 <!-- Item 2 -->
                 <div class="item bg-white p-6 rounded-3xl border border-[#EBE8E1] card-shadow" data-cat="yeonnam">
-                    <div class="w-full h-64 bg-[#E07A5F]/10 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-primary">Y</div>
+                    <div class="w-full h-48 sm:h-64 bg-[#E07A5F]/10 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-primary">Y</div>
                     <h3 class="serif text-2xl mb-2">밀물과 썰물</h3>
                     <p class="text-sm mb-6 opacity-70">경의선 숲길 끝, 햇살이 쏟아지는 카페.</p>
                     
@@ -115,11 +116,12 @@
                             <span>상시 입장 가능</span>
                         </div>
                     </div>
-                    <button onclick="openModal('밀물과 썰물', '연남동 경의선 숲길 카페거리')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('밀물과 썰물', '연남동 경의선 숲길 카페거리')" class="w-full py-3 sm:py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition active:scale-[0.98]">네이버 지도로 보기</button>
                 </div>
+                
                 <!-- Item 3 -->
                 <div class="item bg-white p-6 rounded-3xl border border-[#EBE8E1] card-shadow" data-cat="euljiro">
-                    <div class="w-full h-64 bg-[#3D405B]/10 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]">E</div>
+                    <div class="w-full h-48 sm:h-64 bg-[#3D405B]/10 rounded-2xl mb-6 flex items-center justify-center font-bold text-4xl text-[#3D405B]">E</div>
                     <h3 class="serif text-2xl mb-2">오래된 페이지</h3>
                     <p class="text-sm mb-6 opacity-70">을지로의 낡은 문 뒤에 숨겨진 비밀 와인바.</p>
                     
@@ -133,7 +135,7 @@
                             <span>저녁 7시 이후 예약 권장</span>
                         </div>
                     </div>
-                    <button onclick="openModal('오래된 페이지', '을지로 3가 골목 2층')" class="w-full py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition">네이버 지도로 보기</button>
+                    <button onclick="openModal('오래된 페이지', '을지로 3가 골목 2층')" class="w-full py-3 sm:py-4 rounded-xl border border-primary text-primary font-bold hover:bg-primary hover:text-white transition active:scale-[0.98]">네이버 지도로 보기</button>
                 </div>
             </div>
         </section>
@@ -144,12 +146,12 @@
     </footer>
 
     <div id="modal" class="hidden fixed inset-0 bg-[#3D405B]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white p-8 rounded-3xl max-w-sm w-full shadow-2xl">
-            <h3 class="serif text-3xl mb-2" id="modal-title">PLACE</h3>
-            <p class="mb-8 opacity-70" id="modal-desc">위치 정보를 확인하시겠습니까?</p>
+        <div class="bg-white p-6 sm:p-8 rounded-3xl max-w-sm w-full shadow-2xl">
+            <h3 class="serif text-2xl sm:text-3xl mb-2" id="modal-title">PLACE</h3>
+            <p class="mb-8 opacity-70 text-sm sm:text-base" id="modal-desc">위치 정보를 확인하시겠습니까?</p>
             <div class="flex gap-4">
-                <button onclick="closeModal()" class="flex-1 py-3 bg-[#F4F1DE] rounded-xl font-bold hover:opacity-80 transition">닫기</button>
-                <button onclick="window.open('https://map.naver.com', '_blank')" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary/90 transition">지도 보기</button>
+                <button onclick="closeModal()" class="flex-1 py-3 bg-[#F4F1DE] rounded-xl font-bold hover:opacity-80 transition text-sm sm:text-base">닫기</button>
+                <button onclick="window.open('https://map.naver.com', '_blank')" class="flex-1 bg-primary text-white py-3 rounded-xl font-bold hover:bg-primary/90 transition text-sm sm:text-base">지도 보기</button>
             </div>
         </div>
     </div>
