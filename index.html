@@ -21,7 +21,6 @@
         a, button { cursor: none !important; }
         h1, h2, h3, .serif { font-family: 'Nanum Myeongjo', serif; }
         
-        /* Glassmorphism Styles */
         .glass {
             background: rgba(255, 255, 255, 0.4);
             backdrop-filter: blur(20px);
@@ -38,7 +37,6 @@
         .coral-accent { color: #E07A5F; }
         .coral-bg { background-color: #E07A5F; }
         
-        /* Button Layout Preservation & Hover Effect */
         .filter-btn { 
             transition: all 0.3s ease;
             position: relative;
@@ -56,7 +54,6 @@
         .dark .filter-btn:hover { background: rgba(255,255,255,0.1); }
         .filter-btn.active { background-color: #E07A5F !important; color: white !important; font-weight: 700; }
         
-        /* Card Hover Effect */
         .item { 
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
             will-change: transform;
@@ -96,7 +93,7 @@
     <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-75" style="width: 0%;"></div>
     <div class="custom-cursor hidden md:flex">👆</div>
 
-    <header class="glass max-w-6xl mx-auto rounded-b-3xl p-6 md:py-8 flex justify-between items-center sticky top-0 z-40">
+    <header class="glass rounded-b-3xl p-6 md:py-8 flex justify-between items-center sticky top-0 z-40">
         <h1 class="serif text-2xl font-bold tracking-tight">Hidden<span class="coral-accent">.</span></h1>
         <div class="flex items-center gap-6">
             <nav class="hidden md:flex gap-8 font-medium text-sm tracking-wide uppercase">
@@ -159,9 +156,8 @@
                         <div class="flex justify-between text-xs opacity-70"><span class="font-bold">추천 메뉴</span><span>소금빵, 프레첼</span></div>
                         <div class="flex justify-between text-xs opacity-70"><span class="font-bold">대기 시간</span><span>주말 20-30분 내외</span></div>
                     </div>
-                    <button onclick="openModal('베통 역삼', '역삼역 도보 5분 거리의 소금빵 맛집', 'https://naver.me/5UEcHdrX')" class="w-full py-4 rounded-xl border border-black/20 hover:bg-black/10 dark:border-white/10 dark:hover:bg-white/10 transition font-bold">네이버 지도로 보기</button>
+                    <button onclick="openModal('베통 역삼', '역삼역 도보 5분 거리의 소금빵 맛집', 'https://naver.me/5UEcHdrX')" class="w-full py-4 rounded-xl border border-transparent hover:border-black/20 dark:hover:border-white/20 transition font-bold">네이버 지도로 보기</button>
                 </div>
-                <!-- Item 2 -->
                 <div class="item glass p-6 rounded-3xl" data-cat="gwanggyo">
                     <img src="https://images.unsplash.com/photo-1629223636116-04e1e85a8a6c?q=80&w=1469&auto=format&fit=crop" alt="모닉" class="w-full h-64 object-cover rounded-2xl mb-6">
                     <h3 class="serif text-2xl mb-2">모닉</h3>
@@ -170,9 +166,8 @@
                         <div class="flex justify-between text-xs opacity-70"><span class="font-bold">추천 메뉴</span><span>오늘의 와인, 치즈 보드</span></div>
                         <div class="flex justify-between text-xs opacity-70"><span class="font-bold">대기 시간</span><span>예약 권장</span></div>
                     </div>
-                    <button onclick="openModal('모닉', '광교 카페거리 아늑한 와인바', 'https://naver.me/Gxk1cx3n')" class="w-full py-4 rounded-xl border border-black/20 hover:bg-black/10 dark:border-white/10 dark:hover:bg-white/10 transition font-bold">네이버 지도로 보기</button>
+                    <button onclick="openModal('모닉', '광교 카페거리 아늑한 와인바', 'https://naver.me/Gxk1cx3n')" class="w-full py-4 rounded-xl border border-transparent hover:border-black/20 dark:hover:border-white/20 transition font-bold">네이버 지도로 보기</button>
                 </div>
-                <!-- Item 3 -->
                 <div class="item glass p-6 rounded-3xl" data-cat="seongsu">
                     <img src="https://plus.unsplash.com/premium_photo-1667807522888-911d7e8f0791?q=80&w=1519&auto=format&fit=crop" alt="독보" class="w-full h-64 object-cover rounded-2xl mb-6">
                     <h3 class="serif text-2xl mb-2">독보</h3>
@@ -181,7 +176,28 @@
                         <div class="flex justify-between text-xs opacity-70"><span class="font-bold">추천 메뉴</span><span>한우 육회 솥밥, 묵은지 찌개</span></div>
                         <div class="flex justify-between text-xs opacity-70"><span class="font-bold">대기 시간</span><span>저녁 7시 이후 예약 권장</span></div>
                     </div>
-                    <button onclick="openModal('독보', '성수동의 숨은 한식 퓨전 맛집', 'https://naver.me/F884jOuD')" class="w-full py-4 rounded-xl border border-black/20 hover:bg-black/10 dark:border-white/10 dark:hover:bg-white/10 transition font-bold">네이버 지도로 보기</button>
+                    <button onclick="openModal('독보', '성수동의 숨은 한식 퓨전 맛집', 'https://naver.me/F884jOuD')" class="w-full py-4 rounded-xl border border-transparent hover:border-black/20 dark:hover:border-white/20 transition font-bold">네이버 지도로 보기</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 max-w-2xl mx-auto">
+            <div class="glass p-10 rounded-3xl text-center shadow-xl">
+                <h3 class="serif text-xl mb-8">이 매거진이 마음에 드셨나요?</h3>
+                <div class="flex flex-col items-center gap-8">
+                    <button onclick="incrementLike()" class="group flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/10 rounded-full font-bold hover:bg-white/20 transition transform active:scale-95">
+                        <span id="heart-icon" class="text-sm">🤍</span>
+                        <span class="text-xs">좋아요 <span id="like-count">0</span></span>
+                    </button>
+                    
+                    <div class="w-full mt-4 border-t border-black/10 dark:border-white/10 pt-8">
+                        <h4 class="font-bold mb-6 opacity-70 tracking-widest uppercase text-xs">작은 발자취를 남겨주세요</h4>
+                        <div class="flex gap-2">
+                            <input type="text" id="guest-input" placeholder="한마디 남겨주세요!" class="flex-1 bg-black/5 dark:bg-white/5 p-4 rounded-2xl border border-transparent focus:border-primary focus:outline-none transition">
+                            <button onclick="postComment()" class="px-8 py-4 bg-primary text-white rounded-2xl font-bold hover:bg-primary/90 transition hover:scale-105">게시</button>
+                        </div>
+                        <ul id="comment-list" class="mt-8 text-left space-y-4 text-sm opacity-80 max-h-48 overflow-y-auto"></ul>
+                    </div>
                 </div>
             </div>
         </section>
@@ -203,6 +219,26 @@
     </div>
 
     <script>
+        let likes = 0;
+        function incrementLike() {
+            likes++;
+            document.getElementById('like-count').innerText = likes;
+            const heart = document.getElementById('heart-icon');
+            heart.innerText = '❤️';
+            heart.classList.add('animate-pulse');
+        }
+
+        function postComment() {
+            const input = document.getElementById('guest-input');
+            const list = document.getElementById('comment-list');
+            if(input.value.trim() === '') return;
+            const li = document.createElement('li');
+            li.className = "p-3 bg-black/5 dark:bg-white/5 rounded-xl border border-black/5 dark:border-white/5";
+            li.textContent = `• ${input.value}`;
+            list.prepend(li);
+            input.value = '';
+        }
+
         const textElement = document.getElementById('typing-text');
         const textToType = "어디 갈까?";
         let charIndex = 0;
